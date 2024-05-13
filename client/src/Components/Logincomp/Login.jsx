@@ -1,11 +1,56 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Login.css';
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { SiPetsathome } from "react-icons/si";
 import { IconContext } from "react-icons";
+import axios from "axios";
 
 const Login = () => {
+
+
+
+  const [email, setEmail] = useState('')
+  const [pass, setPass] = useState('')
+
+
+  const Log = (e) =>
+    {
+        e.preventDefault();
+  
+        const url = 'http://localhost:3001/auth/login';
+        const data = 
+        {
+            email : email,
+            password : pass
+  
+        }
+  
+        axios.post(url, data)
+        .then((res) => 
+        {
+            const dt = res.data;
+            console.log(dt);
+            if(dt == "not found")
+              {
+                  alert("User not found");
+              }
+              else
+              {
+                  alert("Welcome");
+  
+              }
+            
+        })
+        .catch((error)=>
+        {
+            console.log(error);
+        })
+    }
+  
+
+
+  
   return (
     <div className='wrapper'>
         <form action="">
@@ -20,13 +65,13 @@ const Login = () => {
         
             <div className='input-box'>
 
-                <input type="text" placeholder='Username' required />
+                <input type="text" placeholder='Email' onChange={(e) => setEmail(e.target.value)} required />
                 <FaUser className='icon' />
 
             </div>
         <div className='input-box'>
 
-            <input type="text" placeholder='Password' required />
+            <input type="text" placeholder='Password' onChange={(e) => setPass(e.target.value)} required />
             <RiLockPasswordFill className='icon'/>
 
 
@@ -38,7 +83,7 @@ const Login = () => {
 
         </div>      
         
-        <button type = "sumbit">Login</button>
+        <button type = "sumbit" onClick={(e) => Log(e)}>Login</button>
 
         <div className='register-link'>
 
