@@ -125,34 +125,37 @@ ul {
       text-decoration: inherit;
     }
     
-    button {
+    .navbarbutton {
       position: relative;
       border-radius: 5px;
       background: #183153;
       font-family: "Montserrat", sans-serif;
       box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
       cursor: pointer;
+      height: 25px;
       border: none;
     }
     
-    button:after {
+    .navbarbutton:after {
       content: " ";
       width: 0%;
       height: 100%;
       background: #ffd401;
+      color:#183153;
       position: absolute;
       transition: all 0.4s ease-in-out;
       right: 0;
+      
     }
     
-    button:hover::after {
+    .navbarbutton:hover::after {
       right: auto;
       left: 0;
       width: 100%;
+      color:#183153;
     }
     
-    button span {
+    .navbarbutton span {
       text-align: center;
       text-decoration: none;
       width: 100%;
@@ -161,11 +164,6 @@ ul {
       font-size: 1.125em;
       z-index: 20;
       transition: all 0.3s ease-in-out;
-    }
-    
-    button:hover span {
-      color: #183153;
-      animation: scaleUp 0.3s ease-in-out;
     }
     
     @keyframes scaleUp {
@@ -181,4 +179,12 @@ ul {
         transform: scale(1);
       }
     }
+
+    .navbarbutton:hover span {
+      color: #183153;
+      z-index: 500;
+      animation: scaleUp 0.3s ease-in-out;
+    }
+    
+    
     
