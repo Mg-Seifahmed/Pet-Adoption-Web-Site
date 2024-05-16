@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './Signup.css';
 import { FaUser } from "react-icons/fa";
+import { Link, useNavigate } from 'react-router-dom';
 import { RiLockPasswordFill } from "react-icons/ri";
 import { SiPetsathome } from "react-icons/si";
 import { IconContext } from "react-icons";
@@ -9,6 +10,8 @@ import axios from "axios";
 
 
 const Signup = () => {
+
+  const navigate = useNavigate();
 
   const [fullNamee, setFullName] = useState('')
   const [email, setEmail] = useState('')
@@ -35,11 +38,13 @@ const Signup = () => {
           console.log(dt);
           if(dt == "used")
             {
-                alert("User Already Exist");
+                alert("Email Already in use Exist");
             }
             else
             {
                 alert("User Created");
+                localStorage.setItem("user", JSON.stringify(dt));
+                navigate('/');
 
             }
           
@@ -89,8 +94,8 @@ const Signup = () => {
 
         <div className='register-link'>
 
-        <p>Dont have an account?
-        <a href="/login">Login</a> </p>
+        <p>Already Have an Accoutn?
+        <Link to='/login'>Login</Link> </p>
         </div>
 
 

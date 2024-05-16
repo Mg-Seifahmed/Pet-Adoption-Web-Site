@@ -1,9 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './Navbar.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 const Navbar = () => {
+
+
+  const [user, setUser] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const userObject = JSON.parse(storedUser);
+      setUser(userObject);
+    }
+  }, [location.pathname]);
+
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    window.location.reload();
+  };
+
+
   return (
     <nav>
         <div>
@@ -28,12 +48,24 @@ const Navbar = () => {
                 <li><a>Cat Info</a></li>
             </ul>
         </li>
+        {user ? (
+          <li><a>welcome {user.fullName}</a></li>
+                        
+                    ) : null}
+        
         
       </ul>
-      <div>
-      <Link to="/signup"> <button><span>Signup</span></button></Link>
-      <Link to="/login"> <button><span>Login</span></button></Link>
-      </div>
+      {user ? (
+                        <div>
+                          <button onClick={handleLogout}><span>Logout</span></button>
+                        </div>
+                    ) : (
+                      <div>
+                      <Link to="/signup"> <button><span>Signup</span></button></Link>
+                      <Link to="/login"> <button><span>Login</span></button></Link>
+                      </div>
+                    )}
+      
     </nav>
   )
 }

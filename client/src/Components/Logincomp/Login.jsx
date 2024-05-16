@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
 import './Login.css';
 import { FaUser } from "react-icons/fa";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { SiPetsathome } from "react-icons/si";
 import { IconContext } from "react-icons";
 import axios from "axios";
 
 const Login = () => {
+
+    const navigate = useNavigate();
 
 
 
@@ -38,6 +41,8 @@ const Login = () => {
               else
               {
                   alert("Welcome");
+                  localStorage.setItem("user", JSON.stringify(dt));
+                  navigate('/');
   
               }
             
@@ -88,7 +93,7 @@ const Login = () => {
         <div className='register-link'>
 
         <p>Dont have an account?
-        <a href="/Signup">Register</a> </p>
+        <Link to="/Signup">Register</Link> </p>
         </div>
 
 

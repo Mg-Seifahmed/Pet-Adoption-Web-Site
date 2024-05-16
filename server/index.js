@@ -47,8 +47,8 @@ const storage = multer.diskStorage({
 
 
   // SETUP
-  mongoose.connect('mongodb+srv://Abdulrahman:pet123456@petadoption.f5rbel4.mongodb.net/').then(() => {
-    app.listen(3001, () => console.log("open hehe"));
+  mongoose.connect(process.env.MONGO).then(() => {
+    app.listen(process.env.PORT, () => console.log("open hehe"));
   })
 
 

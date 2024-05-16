@@ -25,6 +25,12 @@ export const register = async (req, res) => {
         // Save user to the database
         const savedUser = await user.save();
 
+        const resp = {
+            user: savedUser,
+            info: "message saved",
+            
+        }
+
         // Send response
         res.status(200).json(savedUser);
     } catch (err) {
@@ -46,11 +52,16 @@ export const login = async (req, res) => {
         //const salt = await bcrypt.genSalt();
         //const hash = await bcrypt.hash(password, salt);
 
-        const p = await User.findOne({password: password});
         
-        if (m && p)
+        if (m)
             {
-                res.json("found");
+                if(m.password == password)
+                    {
+                        res.json(m);
+                    }
+                    else{
+                        res.json("not found");
+                    }
             }
         else
         {
