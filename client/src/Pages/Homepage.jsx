@@ -12,7 +12,7 @@ const Homepage = () => {
 
       <div className='half'>
         <div className='firsthalf'>
-          <h1>Welcome to our <span>Pet Store</span></h1>
+          <h1 className='pagetitle'>Welcome to our <span>Pet Store</span></h1>
           <br />
         </div>
         <div className='secondhalf'>
