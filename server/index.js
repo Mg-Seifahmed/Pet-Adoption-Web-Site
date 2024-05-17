@@ -10,6 +10,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { register } from "./controller/auth.js";
 import { login } from "./controller/auth.js";
+import {addPet} from "./controller/pet.js";
 
 
 // CONFIGURATIONS
@@ -29,7 +30,7 @@ app.use("/assets", express.static(path.join(__dirname, 'public/assets')));
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, "public/assets");
+      cb(null, "../client/public");
     },
     filename: function (req, file, cb) {
       cb(null, file.originalname);
@@ -37,10 +38,21 @@ const storage = multer.diskStorage({
   });
   const upload = multer({ storage });
 
+  app.post('/upload', upload.single('image'), (req, res) => {
+    // Access the uploaded file via req.file
+    if (!req.file) {
+        return res.status(400).json("not filled");
+    }
+
+    // If file is uploaded successfully, send a response
+    res.send('File uploaded successfully.');
+});
+
 
   // ROUTES
   app.post("/auth/register", register);
   app.post("/auth/login", login);
+  app.post("/pet/addPet", addPet);
 
 
 

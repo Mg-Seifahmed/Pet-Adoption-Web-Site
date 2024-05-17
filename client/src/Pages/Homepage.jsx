@@ -4,9 +4,15 @@ import { IconContext } from "react-icons";
 import { FaDog } from "react-icons/fa6"
 import { FaCat } from "react-icons/fa";
 import { MdPets } from "react-icons/md";
-import cat3 from '../assets/cat3.jpg'
+
+
 
 const Homepage = () => {
+
+
+  const img = 'cat3.jpg';
+
+  
   return (
     <div className='background'>
 
@@ -16,7 +22,7 @@ const Homepage = () => {
           <br />
         </div>
         <div className='secondhalf'>
-          <img src={cat3}></img>
+          <img src={img}></img>
         </div>
       </div>
       <div className='part2'>

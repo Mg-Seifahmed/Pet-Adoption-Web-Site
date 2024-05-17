@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import './Navbar.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { SiPetsathome } from "react-icons/si";
+import { IconContext } from "react-icons";
 
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
 
 
   const [user, setUser] = useState("");
@@ -20,6 +24,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('user');
+    navigate('/');
     window.location.reload();
   };
 
@@ -27,7 +32,11 @@ const Navbar = () => {
   return (
     <nav>
       <div>
-        <h1>PetFindEgy</h1>
+      <Link to="/">
+      <IconContext.Provider value={{ className: "shared-class", size:60}}>
+        <SiPetsathome />
+        </IconContext.Provider>
+        </Link>
       </div>
       <ul class="menu">
         <li><a>Adopt or get involved</a></li>
@@ -44,6 +53,9 @@ const Navbar = () => {
             <li><a>Cat Info</a></li>
           </ul>
         </li>
+        <li><Link to='/Addpet'><a>Add Pet</a></Link> 
+
+        </li>
         {user ? (
           <li><a>welcome {user.fullName}</a></li>
                         
@@ -53,7 +65,7 @@ const Navbar = () => {
       </ul>
       {user ? (
                         <div>
-                          <button onClick={handleLogout}><span>Logout</span></button>
+                          <button className='navbarbutton' onClick={handleLogout}><span>Logout</span></button>
                         </div>
                     ) : (
                       <div>

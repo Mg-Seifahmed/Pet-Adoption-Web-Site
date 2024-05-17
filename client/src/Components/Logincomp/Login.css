@@ -108,6 +108,7 @@
     font-weight: 700;
     background-image: linear-gradient(to right,#FFD0EC,#81689D,#474F7A);
     background-size: 200%;
+    cursor: pointer;
 
 }
 .wrapper button:hover{

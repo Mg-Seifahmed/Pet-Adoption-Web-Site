@@ -3,6 +3,13 @@
     background-size: 300% 300%;
     animation: color 12s ease-in-out infinite;
 }
+
+img {
+    border: 0.5rem solid purple; /* Purple border */
+    border-radius: 50rem; /* Rounded corners */
+  }
+
+
 .half{
     display: flex;
     height: 50rem;

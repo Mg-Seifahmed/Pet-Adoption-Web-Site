@@ -24,6 +24,7 @@
     padding: 0.75rem; 
     border-radius: 0.5rem; 
     border-width: 1px; 
+    color: #183153;
 
 }
 .inputcont{
@@ -32,6 +33,17 @@
     flex: 1 1 0%; 
     gap: 1rem; 
 }
+
+.custom-file-input {
+    /* Add your custom styles here */
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+}
+
 .checkbox{
     display: flex; 
     gap: 0.5rem; 
