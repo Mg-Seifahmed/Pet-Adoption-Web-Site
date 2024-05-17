@@ -1,0 +1,47 @@
+.post_details{
+    margin-top: 3rem;
+    width: 50%;
+    border-radius: 50px;
+    background: linear-gradient(#474F7A, #474F7A) padding-box,
+    linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+    margin-inline:auto;
+    padding: 2rem 2rem;
+    border: 2px solid transparent;
+    transition: all 300ms ease;
+    background-size: 200% 100%;
+    animation: gradient 5s ease infinite;
+}
+
+.post_detail_header{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 1.5rem;
+}
+.post_detail_buttons{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.post_detail_thumbnail{
+    margin: 1rem 0;
+    height: fit-content;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.post_detail_img{
+    width: 100%;
+}
+.postdetail_container p{
+    margin-bottom: 0.7rem;
+}
+.post_header{
+    text-align: center;
+    font-size: 30px;
+}
+.Pet_details{
+    font-size: 20px;
+}
+.pet_description{
+    font-size: 15px;
+    margin-top: 10px;
+}

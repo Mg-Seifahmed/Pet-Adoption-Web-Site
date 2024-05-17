@@ -12,7 +12,7 @@ const Homepage = () => {
 
   const img = 'cat3.jpg';
 
-  
+
   return (
     <div className='background'>
 
@@ -22,7 +22,7 @@ const Homepage = () => {
           <br />
         </div>
         <div className='secondhalf'>
-          <img src={img}></img>
+          <img className='homeimg' src={img}></img>
         </div>
       </div>
       <div className='part2'>

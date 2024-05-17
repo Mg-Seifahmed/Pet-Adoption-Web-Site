@@ -4,9 +4,11 @@
     animation: color 12s ease-in-out infinite;
 }
 
-img {
+.homeimg {
     border: 0.5rem solid purple; /* Purple border */
     border-radius: 50rem; /* Rounded corners */
+    height: auto;
+    width: 95%;
   }
 
 

@@ -40,10 +40,6 @@ li{
     cursor: pointer;
 }
 
-img,video{
-    height: auto;
-    width: 95%;
-}
 
 .message{
     display: none;

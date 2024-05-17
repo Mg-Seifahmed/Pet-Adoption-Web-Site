@@ -7,6 +7,8 @@ import Pet from './Pages/Pet';
 import Login from './Components/Logincomp/Login';
 import Signup from './Components/SignupComp/Signup';
 import PetListing from './Components/PetAddcomp/PetListing';
+import AdminPanel from './Components/AdminPanel/AdminPanel';
+import PostDetails from './Components/PostDetail/PostDetails';
 
 
 function App() {
@@ -28,6 +30,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/Addpet" element={<PetListing />} />
+          <Route path='/admin' element={<AdminPanel />} />
+          <Route path='/admin/:title' element={<PostDetails />} />
+
         </Routes>
       </BrowserRouter>
     </>

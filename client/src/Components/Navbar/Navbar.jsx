@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { SiPetsathome } from "react-icons/si";
@@ -32,10 +32,10 @@ const Navbar = () => {
   return (
     <nav>
       <div>
-      <Link to="/">
-      <IconContext.Provider value={{ className: "shared-class", size:60}}>
-        <SiPetsathome />
-        </IconContext.Provider>
+        <Link to="/">
+          <IconContext.Provider value={{ className: "shared-class", size: 60 }}>
+            <SiPetsathome />
+          </IconContext.Provider>
         </Link>
       </div>
       <ul class="menu">
@@ -53,27 +53,26 @@ const Navbar = () => {
             <li><a>Cat Info</a></li>
           </ul>
         </li>
-        <li><Link to='/Addpet'><a>Add Pet</a></Link> 
-
-        </li>
+        <li><Link to='/Addpet'><a>Add Pet</a></Link></li>
+        <li><Link to='/admin'><a>Admin Panel</a></Link></li>
         {user ? (
           <li><a>welcome {user.fullName}</a></li>
-                        
-                    ) : null}
-        
+
+        ) : null}
+
 
       </ul>
       {user ? (
-                        <div>
-                          <button className='navbarbutton' onClick={handleLogout}><span>Logout</span></button>
-                        </div>
-                    ) : (
-                      <div>
-                      <Link to="/signup"> <button className='navbarbutton'><span>Signup</span></button></Link>
-                      <Link to="/login"> <button className='navbarbutton'><span>Login</span></button></Link>
-                      </div>
-                    )}
-      
+        <div>
+          <button className='navbarbutton' onClick={handleLogout}><span>Logout</span></button>
+        </div>
+      ) : (
+        <div>
+          <Link to="/signup"> <button className='navbarbutton'><span>Signup</span></button></Link>
+          <Link to="/login"> <button className='navbarbutton'><span>Login</span></button></Link>
+        </div>
+      )}
+
     </nav>
   )
 }
