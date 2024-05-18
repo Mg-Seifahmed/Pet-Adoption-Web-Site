@@ -1,11 +1,69 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './postdetail.css'
+import axios from 'axios';
 
 const PostDetails = () => {
     const location = useLocation();
-    const { name, characteristics, img, description, adult, houseTrained, spayedNeutered, color, gender, health, breed } = location.state;
-    console.log(img);
+    const { name, characteristics, img, description, adult, houseTrained, spayedNeutered, color, gender, health, breed, publisher, pEmail } = location.state;
+
+    const navigate = useNavigate();
+
+    const handleReject = async (e) => {
+        e.preventDefault();
+
+        const data = {
+            name: name,
+            pEmail: pEmail
+        }
+
+
+        const res = await axios.post('http://localhost:3001/pet/rejectPet',data);
+
+        if(res.data == "Successful")
+            {
+                navigate('/admin');
+            }
+    }
+
+
+
+    const handleAccespt = async (e) => {
+        e.preventDefault();
+
+        
+
+        const data =
+        {
+            name: name,
+            characteristics: characteristics,
+            health: health,
+            color: color,
+            description: description,
+            adult: adult,
+            houseTrained: houseTrained,
+            spayedNeutered: spayedNeutered,
+            gender: gender,
+            img: img,
+            breed: breed,
+            publisher: publisher,
+            pEmail: pEmail
+
+        }
+        
+        console.log("hehe1");
+
+        const res = await axios.post('http://localhost:3001/pet/acceptPet',data);
+
+        console.log(res.data);
+
+        if(res.data == "Successful")
+            {
+                navigate('/admin');
+            }
+    }
+
+    
 
 
     return (
@@ -13,11 +71,11 @@ const PostDetails = () => {
             <div className='postdetail_container'>
                 <div className='post_detail_header'>
                     <div className='post_detail_buttons'>
-                        <button className='cardbutton'>
+                        <button onClick={(e) => handleAccespt(e)} className='cardbutton'>
                             Accept
                         </button>
-                        <button className='cardbutton2'>
-                            Delete
+                        <button onClick={(e) => handleReject(e)} className='cardbutton2'>
+                        Reject
                         </button>
                     </div>
                 </div>
