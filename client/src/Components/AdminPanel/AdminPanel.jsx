@@ -7,7 +7,7 @@ const DUMMYPOST = [
     {
         name: 'cat1',
         characteristics: ' short and fluffy',
-        img: Thumbnail1,
+        img: 'cat3.jpg',
         description: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
         gender: 'male',
         color: 'black',
@@ -16,19 +16,19 @@ const DUMMYPOST = [
     {
         name: 'cat2',
         characteristics: ' tall and stupid',
-        img: Thumbnail1,
+        img: 'cat3.jpg',
         description: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla'
     },
     {
         name: 'cat2',
         characteristics: ' tall and stupid',
-        img: Thumbnail1,
+        img: 'cat3.jpg',
         description: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla'
     },
     {
         name: 'cat2',
         characteristics: ' tall and stupid',
-        img: Thumbnail1,
+        img: 'cat3.jpg',
         description: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla'
     }
 ]

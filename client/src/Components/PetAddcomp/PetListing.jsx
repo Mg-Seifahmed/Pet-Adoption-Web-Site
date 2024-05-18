@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import './petadd.css'
 import axios from 'axios'
@@ -10,6 +10,7 @@ const PetListing = () => {
     const [imageFile, setImageFile] = useState(null);
 
     const [name, setName] = useState('');
+    const [breed, setBreed] = useState('');
     const [characteristics, setCharacteristics] = useState('');
     const [health, setHealth] = useState('');
     const [color, setColor] = useState('');
@@ -18,6 +19,17 @@ const PetListing = () => {
     const [houseTrained, setHouseTrained] = useState(false);
     const [spayedNeutered, setSpayedNeutered] = useState(false);
     const [gender, setGender] = useState('');
+
+
+
+    const [user, setUser] = useState("");
+    useEffect(() => {
+        const storedUser = localStorage.getItem("user");
+        if (storedUser) {
+          const userObject = JSON.parse(storedUser);
+          setUser(userObject);
+        }
+      }, [location.pathname]);
 
 
 
@@ -65,7 +77,10 @@ const PetListing = () => {
             houseTrained: houseTrained,
             spayedNeutered: spayedNeutered,
             gender: gender,
-            img: imageFile.name
+            img: imageFile.name,
+            breed: breed,
+            publisher: user.fullName,
+            pEmail: user.email
 
         }
 
@@ -93,9 +108,11 @@ const PetListing = () => {
         <main className='maincont'>
             <h1 className='petlistingtitle'>Pet Listing</h1>
             <form className='formstyle'>
-                <div className='inputcont'>
+                {user ? ( 
+                    <>
+                    <div className='inputcont'>
                     <input type='text' placeholder='Name' className='inputstyle' id='name' maxLength='62' minLength='2' required onChange={(e) => setName(e.target.value)} />
-                    <input type='text' placeholder='Breed' className='inputstyle' id='Breed' required onChange={(e) => setColor(e.target.value)} />
+                    <input type='text' placeholder='Breed' className='inputstyle' id='Breed' required onChange={(e) => setBreed(e.target.value)} />
                     <input type='text' placeholder='Characteristics' className='inputstyle' id='Characteristics' required onChange={(e) => setCharacteristics(e.target.value)} />
                     <input type='text' placeholder='Health' className='inputstyle' id='Health' required onChange={(e) => setHealth(e.target.value)} />
                     <input type='text' placeholder='Color' className='inputstyle' id='Color' required onChange={(e) => setColor(e.target.value)} />
@@ -139,10 +156,14 @@ const PetListing = () => {
                                 className='imgstyle'
                             />
                             <button onClick={handleImgRemove} className='deletebutton'>delete</button>
+                            
                         </div>
                     )}
                     <button className='createpetlisting' onClick={handleSubmit}>Create Pet Listing</button>
                 </div>
+                </>
+
+                ): <p> you need to login</p>}
 
             </form>
         </main>

@@ -54,7 +54,9 @@ const Navbar = () => {
           </ul>
         </li>
         <li><Link to='/Addpet'><a>Add Pet</a></Link></li>
-        <li><Link to='/admin'><a>Admin Panel</a></Link></li>
+        {user.fullName == "ZOBR" ? (
+          <li><Link to='/admin'><a>Admin Panel</a></Link></li>
+        ) : null}
         {user ? (
           <li><a>welcome {user.fullName}</a></li>
 

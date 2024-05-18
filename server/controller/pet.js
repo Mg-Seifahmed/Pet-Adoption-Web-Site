@@ -1,4 +1,4 @@
-import Pet from "../model/Pet.js";
+import Pet_Request from "../model/Pet_Request.js";
 
 
 export const addPet = async (req, res) => {
@@ -15,12 +15,14 @@ export const addPet = async (req, res) => {
                 spayedNeutered,
                 gender,
                 img,
-                breed
+                breed,
+                publisher,
+                pEmail
 
             } = req.body;
 
 
-        const pet = new Pet({
+        const pet = new Pet_Request({
             name: name,
             characteristics: characteristics,
             health: health,
@@ -31,12 +33,19 @@ export const addPet = async (req, res) => {
             spayedNeutered: spayedNeutered,
             gender: gender,
             img: img,
-            breed: breed
+            breed: breed,
+            publisher: publisher,
+            pEmail: pEmail
         });
+
+        console.log(pet);
 
 
 
         await pet.save();
+
+        console.log("okay");
+        
 
         res.json(pet);
 
@@ -45,7 +54,7 @@ export const addPet = async (req, res) => {
 
 
     } catch (err) {
-        // Handle errors
+        // Handle errorsf
         res.json("not filled");
     }
 };
