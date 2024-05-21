@@ -1,10 +1,15 @@
 import React from 'react'
+import { useEffect } from 'react'
 
 const Pet = () => {
+
+
+
+
   return (
-    <div>
-      Pet
-    </div>
+    <>
+
+    </>
   )
 }
 

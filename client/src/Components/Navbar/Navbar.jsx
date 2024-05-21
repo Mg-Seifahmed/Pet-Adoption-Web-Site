@@ -44,18 +44,21 @@ const Navbar = () => {
 
 
           <ul class="menu">
-            <li><a>About Us</a></li>
-            <li>
+            <li><Link to='/aboutus'><a>About Us</a></Link></li>
+            <li><Link to='/dogs'>
               <a>Dogs And Puppies</a>
-
+            </Link>
             </li>
-            <li>
+            <li><Link to='/cats'>
               <a>Cats and Kittens</a>
-
+            </Link>
             </li>
             <li><Link to='/Addpet'><a>Add Pet</a></Link></li>
             {user.fullName == "ZOBR" ? (
               <li><Link to='/admin'><a>Admin Panel</a></Link></li>
+            ) : null}
+            {user.fullName != "ZOBR" ? (
+              <li><Link to='/user'><a>User Panel</a></Link></li>
             ) : null}
 
 

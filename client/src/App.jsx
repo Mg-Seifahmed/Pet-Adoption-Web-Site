@@ -12,7 +12,7 @@ import Dogspage from './Pages/Dogspage';
 import Catpage from './Pages/Catpage';
 import UserProfile from './Components/UserProfile/UserProfile';
 import Search from './Pages/SearchPage/Search';
-
+import AboutUs from './Pages/AboutUs/AboutUs';
 
 function App() {
 
@@ -25,8 +25,8 @@ function App() {
         <Routes>
 
           <Route path='/' element={<Homepage />} />
-          <Route path='/dogs' element={<AnimalsPage category="dogs" />} />
-          <Route path='/cats' element={<AnimalsPage category="cats" />} />
+          <Route path='/dogs' element={<Dogspage />} />
+          <Route path='/cats' element={<Catpage />} />
           <Route path="/pet" element={<Pet />}>
             <Route path=":petid" element={<Pet />} />
           </Route>
@@ -35,6 +35,8 @@ function App() {
           <Route path="/Addpet" element={<PetListing />} />
           <Route path='/admin' element={<AdminPanel />} />
           <Route path='/admin/:title' element={<PostDetails />} />
+          <Route path='/aboutus' element={<AboutUs />} />
+          <Route path='/user' element={<UserProfile />} />
 
         </Routes>
       </BrowserRouter>
