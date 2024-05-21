@@ -53,9 +53,10 @@ const Navbar = () => {
             <li><a>Cat Info</a></li>
           </ul>
         </li>
-        <li><Link to='/Addpet'><a>Add Pet</a></Link> 
-
-        </li>
+        <li><Link to='/Addpet'><a>Add Pet</a></Link> </li>
+        
+        <li><Link to='/profile'><a>Profile</a></Link> </li>
+      
         {user ? (
           <li><a>welcome {user.fullName}</a></li>
                         

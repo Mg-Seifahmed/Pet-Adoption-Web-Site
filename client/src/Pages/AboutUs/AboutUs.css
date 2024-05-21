@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap');
+
+:root {
+
+    --color1:#FFD0EC ;
+    --color2: hsla(257, 99%, 72%, 1);
+    
+  }
+
+
+.about{
+    width: 100%;
+    padding: 20px 0px;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0)
+      ),
+      linear-gradient(
+        180deg, 
+        var(--color1),
+        var(--color2)
+      );
+ 
+}
+.about img{
+    height: 700px;
+    width: 500px;
+    
+}
+.about-text{
+    width: 550px;
+
+}
+
+
+
+.founders{
+    width: 100%;
+    padding: 20px 0px;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0)
+      ),
+      linear-gradient(180deg, var(--color2), var(--color1));
+}
+.founders img{
+    height: 700px;
+    width: 500px;
+    
+}
+
+.vision{
+    width: 100%;
+    padding: 20px 0px;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0)
+      ),
+      linear-gradient(180deg, var(--color1), var(--color2));
+}
+.vision img{
+    height: 700px;
+    width: 500px;
+    
+}
+
+.mission {
+    width: 100%;
+    padding: 20px 0px;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0)
+      ),
+      linear-gradient(
+        180deg, /* Change the angle to 90 degrees for vertical gradient */
+        var(--color2),
+        var(--color1)
+      );
+}
+.mission img{
+    height: 700px;
+    width: 500px;
+    
+}
+
+.main{
+    width: 1130px;
+max-width: 95%;
+margin: 0 auto;
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+.about-text h1{
+    color: white;
+    font-size: 80px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.about-text h5{
+    color: white;
+    font-size: 25px;
+    text-transform: capitalize;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.about-text p{
+    color:#1F2544;
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 20px;
+    margin-bottom: 45px;
+    font-weight:bold;
+}

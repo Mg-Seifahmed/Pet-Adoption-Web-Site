@@ -1,0 +1,115 @@
+:root {
+    --shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    --dark-purp: #1F2544;
+    --mid-purp:  #474F7A;
+    --light-purp:#81689D;
+    --light-blue:#9ab3f5;
+    --pink:#FFD0EC;
+
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    font-family: "Montserrat", sans-serif;
+  }
+
+.Search
+  {
+    display:flex;
+    align-items: center;
+    justify-content:center ;
+    height: 7vh;
+    background-color: #9ab3f5;
+  }
+
+  .search-bar{
+
+    display: flex;
+    align-items: center;
+    min-width: 700px;
+    border-radius: 50px;
+    background-color: #FFD0EC;
+  }
+
+  .dropdown{
+
+
+    position: relative;
+    width: 280px;
+    border-radius: 50px;
+    border: 1px solid white;
+    background-color:#FFD0EC ;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+  }
+.dropdown-text{
+
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    padding: 1rem 1.5rem;
+}
+
+.dropdown-list{
+
+    position: absolute;
+    top:4rem;
+    left:0;
+    width: 100%;
+    border-radius: 15px;
+    background-color: white;
+}
+.dropdown-list-item{
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 1rem 0 1rem 1.5rem;
+    cursor: pointer;
+    transition:  margin-left 0.2s ease, color 0.2s;
+}
+
+.dropdown-list-item:hover{
+    margin-left:0.5rem;
+    color :#9ab3f5;
+}
+
+.search-box
+{
+
+    display: flex;
+    align-items: center;
+    padding-right: 1rem;
+    width:100%;
+    color:#9ab3f5;
+}
+
+.search-box input{
+
+    padding: 1rem;
+    width:100%;
+    font-size:1rem;
+    font-weight:500;
+    color: var(--light-blue);
+    border : 0;
+    outline:0; 
+
+}
+.search-box i {
+
+    font-size:1.3rem;
+    cursor:pointer;
+}
+
+.search-box input ::placeholder
+{
+    font-size: 1rem;
+    font-weight: 500;
+    color:var(--light-blue);
+
+}
+

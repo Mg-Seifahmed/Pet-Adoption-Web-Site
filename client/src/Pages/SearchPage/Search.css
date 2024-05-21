@@ -1,0 +1,109 @@
+
+input{
+
+    color:black;
+}
+.Search {
+    display: flex;
+    flex-direction: row; 
+    padding: 20px;
+}
+
+.Right {
+    padding: 1rem;
+    border-right:  2px solid gray;
+
+}
+
+.Left{
+    flex: 1 1 0%; 
+    padding: 0.75rem; 
+    margin-top: 1.25rem; 
+    border-bottom-width: 1px; 
+    font-size: 25px;
+    line-height: 2.25rem; 
+    font-weight: 500; 
+    
+}
+
+
+.Listing {
+    margin-bottom: 1rem;
+}
+
+.Listing label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.Listing input[type='text'],
+.Listing select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+.Checkk {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.type {
+    font-weight: 600;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.label {
+    font-weight: 600;
+}
+
+.Lform {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+   
+}
+
+option{
+    color: black;
+}
+.srt{
+    font-weight: 500;
+}
+#sort_order {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    color: black;
+    padding: 0.5rem; 
+border-radius: 0.5rem; 
+border-width: 1px; 
+
+
+}
+.srch {
+    background-color: #2d3748;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.srch:hover {
+
+  background-color: #81689D;
+  color: pink;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+
+}
