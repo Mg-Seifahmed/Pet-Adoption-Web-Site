@@ -10,7 +10,36 @@
     padding: 0.75rem; 
     max-width: 56rem; 
     margin: 0 auto;
+
+  background: 
+              linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+  border: 2px solid transparent;
+  
+
+  color: white;
+ 
+  
+  gap: 20px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-size: 200% 100%;
+  animation: gradient 5s ease infinite;
+  
 }
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+  
+    50% {
+      background-position: 100% 50%;
+    }
+  
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
 .formstyle{
     display: flex; 
     flex-direction: column; 
@@ -35,7 +64,6 @@
 }
 
 .custom-file-input {
-    /* Add your custom styles here */
     border: 1px solid #ccc;
     padding: 8px;
     border-radius: 4px;
@@ -52,7 +80,7 @@
     display: flex; 
     flex-wrap: wrap; 
     gap: 1.5rem; 
-    font-size: 18px;
+    font-size: 13px;
 }
 .check{
     width: 1.25rem; 

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const petSchema = new mongoose.Schema({
+const petRequestSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -50,5 +50,6 @@ const petSchema = new mongoose.Schema({
     }
 })
 
-const Pet = mongoose.model("Pet", petSchema);
-export default Pet;
+const Pet_Request = mongoose.model("Pet_Request", petRequestSchema);
+export default Pet_Request;
+

@@ -11,6 +11,9 @@ import { fileURLToPath } from "url";
 import { register } from "./controller/auth.js";
 import { login } from "./controller/auth.js";
 import {addPet} from "./controller/pet.js";
+import {getPet} from "./controller/pet.js";
+import {acceptPet} from "./controller/pet.js";
+import {rejectPet} from "./controller/pet.js";
 
 
 // CONFIGURATIONS
@@ -53,6 +56,12 @@ const storage = multer.diskStorage({
   app.post("/auth/register", register);
   app.post("/auth/login", login);
   app.post("/pet/addPet", addPet);
+  app.post("/pet/getpet", getPet);
+  app.post("/pet/acceptPet", acceptPet);
+  app.post("/pet/rejectPet", rejectPet);
+
+
+  
 
 
 

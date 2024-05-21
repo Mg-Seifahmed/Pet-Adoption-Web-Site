@@ -15,11 +15,13 @@ const Login = () => {
 
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
+  const [logError, setLogError] = useState('')
 
 
   const Log = (e) =>
     {
         e.preventDefault();
+        setLogError('');
   
         const url = 'http://localhost:3001/auth/login';
         const data = 
@@ -36,11 +38,11 @@ const Login = () => {
             console.log(dt);
             if(dt == "not found")
               {
-                  alert("User not found");
+                 
+                  setLogError("Email or Password Do not match")
               }
               else
               {
-                  alert("Welcome");
                   localStorage.setItem("user", JSON.stringify(dt));
                   navigate('/');
   
@@ -70,6 +72,7 @@ const Login = () => {
         
             <div className='input-box'>
 
+                {logError && <p className="error-message">{logError}</p>}
                 <input type="text" placeholder='Email' onChange={(e) => setEmail(e.target.value)} required />
                 <FaUser className='icon' />
 
