@@ -1,18 +1,37 @@
-ul {
+    ul {
     margin: 0;
     padding: 0;
       list-style: none;
     }
-    
+    .navbarfully{
+      margin: 5px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content:space-between;
+      padding: 10px 30px 0;
+      
+
+    }
     nav {
       margin: 0;
       padding: 0;
       display: flex;
+      width: 70%;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 10px 30px 0;
-      background-color: #1F2544;
+      background: linear-gradient(#1F2544, #1F2544) padding-box,
+              linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+      background-size: 200% 100%;
+      animation: gradient 5s ease infinite;
+      border-radius: 50px;
+      border: 5px solid transparent;
+      background-color: #FFD0EC;
     }
+
+    
+    
     
     nav > :is(h1, span.material-symbols-outlined) {
       width:10rem;
@@ -34,6 +53,7 @@ ul {
     
     a {
       cursor: pointer;
+      
     }
     
     .menu {
@@ -47,7 +67,7 @@ ul {
     
     .menu li {
       display: inline-block;
-      width: 10rem;
+      width: 12rem;
       color: #999;
       transition: all 0.3s ease-in-out;
     }
@@ -100,13 +120,35 @@ ul {
       align-items: center;
       justify-content: center;
       padding: 0 7px;
-      font-size: 16px;
+      font-size: 17.128888px;
       text-decoration: none;
       position: relative;
       height: 100%;
       transition: 0.3s;
+      color: #FFD0EC;
+    }
+
+    .menu > li a::after {
+      content: "";
+      position: absolute;
+      background-color: #dc8fbd;
+      height: 3px;
+      width: 0;
+      left: 10;
+      bottom: +5px;
     }
     
+    .menu > li a:hover::after {
+      content: "";
+      position: absolute;
+      background-color: #f76fc1;
+      height: 3px;
+      width: 70%;
+      left: 10;
+      bottom: +5px;
+      transition: 0.3s;
+    }
+
     .menu > li > a::before {
       content: "";
       position: absolute;
@@ -126,33 +168,33 @@ ul {
     }
     
     .navbarbutton {
-      position: relative;
-      border-radius: 5px;
-      background: #183153;
-      font-family: "Montserrat", sans-serif;
-      box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+      padding: 13px 8px;
+      border-radius: 50px;
       cursor: pointer;
-      height: 25px;
-      border: none;
+      border: 0;
+      background-color: #183153;
+      box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 15px;
+      transition: all 0.5s ease;
     }
     
     .navbarbutton:after {
-      content: " ";
-      width: 0%;
-      height: 100%;
-      background: #ffd401;
-      color:#183153;
-      position: absolute;
-      transition: all 0.4s ease-in-out;
-      right: 0;
+      letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
       
     }
     
-    .navbarbutton:hover::after {
-      right: auto;
-      left: 0;
-      width: 100%;
-      color:#183153;
+    .navbarbutton:hover {
+      letter-spacing: 3px;
+      background-color: hsl(262, 100%, 69%);
+      color: hsl(0, 0%, 100%);
+      box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
     }
     
     .navbarbutton span {
@@ -187,4 +229,37 @@ ul {
     }
     
     
+    .container-input {
+      position: relative;
+      float: right;
+    }
     
+    .input {
+      width: 150px;
+      height: 40px;
+      padding: 10px 0px 10px 40px;
+      border-radius: 9999px;
+      border: solid 1px #333;
+      transition: all .2s ease-in-out;
+      outline: none;
+      opacity: 0.8;
+      color: #183153;
+      background-color: #FFD0EC;
+    }
+    
+    .container-input svg {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translate(0, -50%);
+    }
+    
+    .input:focus {
+      opacity: 1;
+      width: 250px;
+    }
+
+    .Welcometext{
+      font-size: 18px;
+      color:#FFD0EC
+    }

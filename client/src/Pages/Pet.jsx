@@ -2,7 +2,9 @@ import React from 'react'
 
 const Pet = () => {
   return (
-    <div>Pet</div>
+    <div>
+      Pet
+    </div>
   )
 }
 
