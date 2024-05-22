@@ -49,7 +49,7 @@ const PetListing = () => {
 
 
 
-    const handleSubmit = async (e) => {  /*this is for back end insahllah lmao*/ // Thank you Dear Mini (...... يلعن)
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         setFormError('');
