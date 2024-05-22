@@ -19,7 +19,8 @@ export const addPet = async (req, res) => {
                 img,
                 breed,
                 publisher,
-                pEmail
+                pEmail,
+                type
 
             } = req.body;
 
@@ -62,7 +63,8 @@ export const addPet = async (req, res) => {
             img: img,
             breed: breed,
             publisher: publisher,
-            pEmail: pEmail
+            pEmail: pEmail,
+            type: type
         });
 
 
@@ -141,7 +143,8 @@ export const acceptPet = async (req, res) => {
                 img,
                 breed,
                 publisher,
-                pEmail
+                pEmail,
+                type
 
             } = req.body;
 
@@ -162,7 +165,8 @@ export const acceptPet = async (req, res) => {
                 img: img,
                 breed: breed,
                 publisher: publisher,
-                pEmail: pEmail
+                pEmail: pEmail,
+                type: type
             });
 
 
@@ -180,5 +184,110 @@ export const acceptPet = async (req, res) => {
     } catch (err) {
         // Handle errorsf
         res.json("not Successful");
+    }
+};
+
+
+
+
+export const getCat = async (req, res) => {
+    try {
+
+
+        const pet = await Pet.find({type:"Cat"});
+        res.json(pet);
+        
+
+
+
+
+    } catch (err) {
+        // Handle errorsf
+        res.json("error");
+    }
+};
+
+
+export const getDog = async (req, res) => {
+    try {
+        
+
+
+        const pet = await Pet.find({type:"Dog"});
+        res.json(pet);
+        
+
+
+
+
+    } catch (err) {
+        // Handle errorsf
+        res.json("error");
+    }
+};
+
+
+export const getSearch = async (req, res) => {
+    try {
+
+
+        const { searchTerm } = req.body;
+
+
+        const query = {
+            $or: [
+                { name: { $regex: searchTerm, $options: 'i' } },
+                { breed: { $regex: searchTerm, $options: 'i' } },
+                { color: { $regex: searchTerm, $options: 'i' } },
+               // { adult: { $regex: searchTerm, $options: 'i' } },
+                //{ houseTrained: { $regex: searchTerm, $options: 'i' } },
+                //{ spayedNeutered: { $regex: searchTerm, $options: 'i' } },
+                //{ gender: { $regex: searchTerm, $options: 'i' } },
+               // { type: { $regex: searchTerm, $options: 'i' } }
+            ]
+        };
+
+        const pets = await Pet.find(query);
+        res.json(pets);
+
+
+
+
+    } catch (err) {
+        // Handle errorsf
+        res.json("error");
+    }
+};
+
+
+export const getCustom = async (req, res) => {
+    try {
+
+
+        const { searchTerm } = req.body;
+
+
+        const query = {
+            $or: [
+                { name: { $regex: searchTerm, $options: 'i' } },
+                { breed: { $regex: searchTerm, $options: 'i' } },
+                { color: { $regex: searchTerm, $options: 'i' } },
+               // { adult: { $regex: searchTerm, $options: 'i' } },
+                //{ houseTrained: { $regex: searchTerm, $options: 'i' } },
+                //{ spayedNeutered: { $regex: searchTerm, $options: 'i' } },
+                //{ gender: { $regex: searchTerm, $options: 'i' } },
+               // { type: { $regex: searchTerm, $options: 'i' } }
+            ]
+        };
+
+        const pets = await Pet.find(query);
+        res.json(pets);
+
+
+
+
+    } catch (err) {
+        // Handle errorsf
+        res.json("error");
     }
 };

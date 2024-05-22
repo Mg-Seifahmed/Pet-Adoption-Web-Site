@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const PostDetails = () => {
     const location = useLocation();
-    const { name, characteristics, img, description, adult, houseTrained, spayedNeutered, color, gender, health, breed, publisher, pEmail } = location.state;
+    const { name, characteristics, img, description, adult, houseTrained, spayedNeutered, color, gender, health, breed, publisher, pEmail, type } = location.state;
 
     const navigate = useNavigate();
 
@@ -47,7 +47,8 @@ const PostDetails = () => {
             img: img,
             breed: breed,
             publisher: publisher,
-            pEmail: pEmail
+            pEmail: pEmail,
+            type: type
 
         }
         

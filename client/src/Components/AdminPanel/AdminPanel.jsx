@@ -32,9 +32,9 @@ const AdminPanel = () => {
       <section className='posts'>
         <div className='posts_container'>
           {
-            posts.map(({ breed, name, characteristics, img, description, adult, houseTrained, spayedNeutered, color, gender, health, publisher, pEmail }) =>
+            posts.map(({ breed, name, characteristics, img, description, adult, houseTrained, spayedNeutered, color, gender, health, publisher, pEmail, type }) =>
               <Postcard key={name} breed={breed} img={img} name={name} description={description} characteristics={characteristics} adult={adult}
-                houseTrained={houseTrained} spayedNeutered={spayedNeutered} color={color} gender={gender} health={health} publisher={publisher} pEmail={pEmail} />)
+                houseTrained={houseTrained} spayedNeutered={spayedNeutered} color={color} gender={gender} health={health} publisher={publisher} pEmail={pEmail} type={type} />)
           }
         </div>
       </section>

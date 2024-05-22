@@ -1,54 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Postcard from '../Components/postitem/Postcard'
 import './dogpage.css'
+import axios from 'axios'
 
-const dummyposts = [
-    {
-        breed: 'sexy',
-        name: 'neural network',
-        characteristics: 'a dog',
-        img: 'DHOM.jpg',
-        description: ' a pet',
-        adult: 1,
-        houseTrained: 1,
-        spayedNeutered: 1,
-        color: 'black',
-        gender: 'Male',
-        health: 'healthy'
-
-    },
-    {
-        breed: 'sexy',
-        name: 'neural network',
-        characteristics: 'a dog',
-        img: 'DHOM.jpg',
-        description: ' a pet',
-        adult: 1,
-        houseTrained: 1,
-        spayedNeutered: 1,
-        color: 'black',
-        gender: 'Male',
-        health: 'healthy'
-
-    },
-    {
-        breed: 'sexy',
-        name: 'neural network',
-        characteristics: 'a dog',
-        img: 'DHOM.jpg',
-        description: ' a pet',
-        adult: 1,
-        houseTrained: 1,
-        spayedNeutered: 1,
-        color: 'black',
-        gender: 'Male',
-        health: 'healthy'
-
-    }
-]
 
 const Dogspage = () => {
-    const [posts, setPosts] = useState(dummyposts)
+
+
+    useEffect(() => {
+
+        const fetchData = async () => {
+          try {
+            const res = await axios.post('http://localhost:3001/pet/getDog');
+            console.log(res.data);
+            setPosts(res.data);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
+
+    const [posts, setPosts] = useState([])
     return (
         <>
             <div className='Search'>
@@ -151,7 +125,6 @@ const Dogspage = () => {
 
                 <div className='Left' >
                     <div>
-                        <h1 className='petlistingtitle'>Dog page</h1>
                         <section className='posts'>
                             <div className='posts_container'>
                                 {

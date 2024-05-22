@@ -22,6 +22,7 @@ const PetListing = () => {
     const [houseTrained, setHouseTrained] = useState(false);
     const [spayedNeutered, setSpayedNeutered] = useState(false);
     const [gender, setGender] = useState('');
+    const [petType, setType] = useState('');
 
 
 
@@ -86,7 +87,8 @@ const PetListing = () => {
             img: imageFile.name,
             breed: breed,
             publisher: user.fullName,
-            pEmail: user.email
+            pEmail: user.email,
+            type: petType
 
         }
 
@@ -121,9 +123,9 @@ const PetListing = () => {
                             {formError && <p className="error-message">{formError}</p>}
                             <input type='text' placeholder='Name' className='inputstyle' id='name' maxLength='62' minLength='2' required onChange={(e) => setName(e.target.value)} />
                             <div className='checkbox pettype'>
-                                <input type="radio" id="Dog" name="Pettype" value="Dog" onChange={(e) => setGender(e.target.value)} />
+                                <input type="radio" id="Dog" name="Pettype" value="Dog" onChange={(e) => setType(e.target.value)} />
                                 <label for="male">Dog</label><br />
-                                <input type="radio" id="Cat" name="Pettype" value="Cat" onChange={(e) => setGender(e.target.value)} />
+                                <input type="radio" id="Cat" name="Pettype" value="Cat" onChange={(e) => setType(e.target.value)} />
                                 <label for="female">Cat</label><br />
                             </div>
                             <input type='text' placeholder='Breed' className='inputstyle' id='Breed' required onChange={(e) => setBreed(e.target.value)} />

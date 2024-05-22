@@ -2,11 +2,11 @@ import React from 'react'
 import './postitem.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
-const Postcard = ({ name, characteristics, img, description, adult, houseTrained, spayedNeutered, color, gender, health, breed, publisher, pEmail }) => {
+const Postcard = ({ name, characteristics, img, description, adult, houseTrained, spayedNeutered, color, gender, health, breed, publisher, pEmail, type }) => {
     const shortdesc = description.length > 150 ? description.substr(0, 150) + '...' : description;
     return (
         <article className='post'>
-            <Link to={`/admin/${name}`} state={{ name, characteristics, img, description, adult, houseTrained, spayedNeutered, color, gender, health, breed, publisher, pEmail }}>
+            <Link to={`/admin/${name}`} state={{ name, characteristics, img, description, adult, houseTrained, spayedNeutered, color, gender, health, breed, publisher, pEmail, type }}>
                 <div className='postthumbnail'>
                     <img className='cardimg' src={img} />
                 </div>

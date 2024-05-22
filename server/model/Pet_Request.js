@@ -5,6 +5,10 @@ const petRequestSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    type: {
+        type: String,
+        required: true
+    },
     characteristics: {
         type: String,
         required: true

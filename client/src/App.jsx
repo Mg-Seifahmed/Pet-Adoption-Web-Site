@@ -13,6 +13,7 @@ import Catpage from './Pages/Catpage';
 import UserProfile from './Components/UserProfile/UserProfile';
 import Search from './Pages/SearchPage/Search';
 import AboutUs from './Pages/AboutUs/AboutUs';
+import CustomPage from './Pages/CustomPage';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Route path='/' element={<Homepage />} />
           <Route path='/dogs' element={<Dogspage />} />
           <Route path='/cats' element={<Catpage />} />
+          <Route path='/search' element={<CustomPage />} />
           <Route path="/pet" element={<Pet />}>
             <Route path=":petid" element={<Pet />} />
           </Route>

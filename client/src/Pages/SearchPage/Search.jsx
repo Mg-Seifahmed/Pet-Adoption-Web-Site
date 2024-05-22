@@ -1,6 +1,11 @@
 import React from 'react'
 import './Search.css'
 function Search() {
+
+
+    const handleSearch = async ()  => {
+        
+    }
     return (
         <div className='Search'>
 
@@ -136,7 +141,7 @@ function Search() {
                     </div>
 
 
-                    <button className='srch'> Search </button>
+                    <button className='srch' onClick={handleSearch}> Search </button>
 
 
                 </form>

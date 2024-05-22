@@ -14,6 +14,9 @@ import {addPet} from "./controller/pet.js";
 import {getPet} from "./controller/pet.js";
 import {acceptPet} from "./controller/pet.js";
 import {rejectPet} from "./controller/pet.js";
+import {getCat} from "./controller/pet.js";
+import {getDog} from "./controller/pet.js";
+import { getSearch } from "./controller/pet.js";
 
 
 // CONFIGURATIONS
@@ -59,6 +62,9 @@ const storage = multer.diskStorage({
   app.post("/pet/getpet", getPet);
   app.post("/pet/acceptPet", acceptPet);
   app.post("/pet/rejectPet", rejectPet);
+  app.post("/pet/getCat", getCat);
+  app.post("/pet/getDog", getDog);
+  app.post("/pet/getSearch", getSearch);
 
 
   

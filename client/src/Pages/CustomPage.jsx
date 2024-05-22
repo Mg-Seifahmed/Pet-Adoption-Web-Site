@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Postcard from '../Components/postitem/Postcard'
-import axios from 'axios';
+import './dogpage.css'
+import axios from 'axios'
 
 
-const Catpage = () => {
+const CustomPage = () => {
+
+    const location = useLocation();
+    const [query, setQuery] = useState(location.state?.query || '');
+
+
     useEffect(() => {
 
+        console.log(query);
+
+
         const fetchData = async () => {
+
           try {
-            const res = await axios.post('http://localhost:3001/pet/getCat');
+            
+            const res = await axios.post('http://localhost:3001/pet/getSearch',{searchTerm: query});
             console.log(res.data);
             setPosts(res.data);
           } catch (error) {
@@ -17,12 +29,16 @@ const Catpage = () => {
         };
     
         fetchData();
-      }, []);
+      }, [query]);
 
+      useEffect(() => {
+        if (location.state?.query) {
+          setQuery(location.state.query);
+        }
+      }, [location.state]);
 
     const [posts, setPosts] = useState([])
     return (
-
         <>
             <div className='Search'>
 
@@ -33,16 +49,17 @@ const Catpage = () => {
                             <label className='label' >Preferred Gender
                                 <div className='gender'
                                 >
-                                    <input type='checkbox' id='all'
+                                    <input type='checkbox' id='Male'
                                         className='box'></input>
                                     <span>Male </span>
+                                    <input type='checkbox' id='Female'
+                                        className='box'></input>
+                                    <span>Female</span>
                                 </div>
 
                                 <div className='gender'
                                 >
-                                    <input type='checkbox' id='all'
-                                        className='box'></input>
-                                    <span>Female</span>
+
                                 </div>
 
 
@@ -53,35 +70,29 @@ const Catpage = () => {
                             <label className='label' >Preferred Color
                                 <div className='color'
                                 >
-                                    <input type='checkbox' id='all'
+                                    <input type='checkbox' id='Black'
                                         className='box'></input>
                                     <span>Black </span>
                                 </div>
 
                                 <div className='color'
                                 >
-                                    <input type='checkbox' id='all'
+                                    <input type='checkbox' id='Brown'
                                         className='box'></input>
                                     <span>Brown</span>
                                 </div>
 
                                 <div className='color'
                                 >
-                                    <input type='checkbox' id='all'
+                                    <input type='checkbox' id='Ornage'
                                         className='box'></input>
                                     <span>Orange</span>
                                 </div>
                                 <div className='color'
                                 >
-                                    <input type='checkbox' id='all'
+                                    <input type='checkbox' id='White'
                                         className='box'></input>
                                     <span>White</span>
-                                </div>
-                                <div className='color'
-                                >
-                                    <input type='checkbox' id='all'
-                                        className='box'></input>
-                                    <span>Mixed</span>
                                 </div>
                             </label>
                         </div>
@@ -120,7 +131,6 @@ const Catpage = () => {
                                 </div>
                             </label>
                         </div>
-
                         <button className='srch'> Search </button>
 
 
@@ -148,4 +158,4 @@ const Catpage = () => {
     )
 }
 
-export default Catpage
+export default CustomPage
