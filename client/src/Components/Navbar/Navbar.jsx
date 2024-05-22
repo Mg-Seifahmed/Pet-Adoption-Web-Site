@@ -55,7 +55,7 @@ const Navbar = () => {
             </li>
             <li><Link to='/Addpet'><a>Add Pet</a></Link></li>
             {user.fullName == "ZOBR" ? (
-              <li><Link to='/admin'><a>Admin Panel</a></Link></li>
+              <li className='Adminbutton'><Link to='/admin'><a>Admin Panel</a></Link></li>
             ) : null}
             {user.fullName != "ZOBR" ? (
               <li><Link to='/user'><a>User Panel</a></Link></li>

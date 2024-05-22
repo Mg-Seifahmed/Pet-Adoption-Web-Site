@@ -71,8 +71,10 @@
       color: #999;
       transition: all 0.3s ease-in-out;
     }
+
+
     
-    .menu li:hover .submenu {
+    .menu li:hover{
       height: 85px;
     }
     

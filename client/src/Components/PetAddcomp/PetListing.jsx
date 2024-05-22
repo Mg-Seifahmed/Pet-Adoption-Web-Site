@@ -29,10 +29,10 @@ const PetListing = () => {
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
         if (storedUser) {
-          const userObject = JSON.parse(storedUser);
-          setUser(userObject);
+            const userObject = JSON.parse(storedUser);
+            setUser(userObject);
         }
-      }, [location.pathname]);
+    }, [location.pathname]);
 
 
 
@@ -115,66 +115,73 @@ const PetListing = () => {
         <main className='maincont'>
             <h1 className='petlistingtitle'>Pet Listing</h1>
             <form className='formstyle'>
-                {user ? ( 
+                {user ? (
                     <>
-                    <div className='inputcont'>
-                    {formError && <p className="error-message">{formError}</p>}
-                    <input type='text' placeholder='Name' className='inputstyle' id='name' maxLength='62' minLength='2' required onChange={(e) => setName(e.target.value)} />
-                    <input type='text' placeholder='Breed' className='inputstyle' id='Breed' required onChange={(e) => setBreed(e.target.value)} />
-                    <input type='text' placeholder='Characteristics' className='inputstyle' id='Characteristics' required onChange={(e) => setCharacteristics(e.target.value)} />
-                    <input type='text' placeholder='Health' className='inputstyle' id='Health' required onChange={(e) => setHealth(e.target.value)} />
-                    <input type='text' placeholder='Color' className='inputstyle' id='Color' required onChange={(e) => setColor(e.target.value)} />
-                    <textarea type='text' placeholder='Description' className='inputstyle' id='description' required onChange={(e) => setDescription(e.target.value)} />
-                    <div className='checkboxes'>
-                        <div className='checkbox'>
-                            <input type='checkbox' id='adult' className='check' onChange={(e) => setAdult(e.target.checked)} />
-                            <span>Adult</span>
-                        </div>
-                        <div className='checkbox'>
-                            <input type='checkbox' id='adult' className='check' onChange={(e) => setHouseTrained(e.target.checked)} />
-                            <span>HouseTrained</span>
-                        </div>
-                        <div className='checkbox'>
-                            <input type='checkbox' id='adult' className='check' onChange={(e) => setSpayedNeutered(e.target.checked)} />
-                            <span>spayed/neutred</span>
-                        </div>
+                        <div className='inputcont'>
+                            {formError && <p className="error-message">{formError}</p>}
+                            <input type='text' placeholder='Name' className='inputstyle' id='name' maxLength='62' minLength='2' required onChange={(e) => setName(e.target.value)} />
+                            <div className='checkbox pettype'>
+                                <input type="radio" id="Dog" name="Pettype" value="Dog" onChange={(e) => setGender(e.target.value)} />
+                                <label for="male">Dog</label><br />
+                                <input type="radio" id="Cat" name="Pettype" value="Cat" onChange={(e) => setGender(e.target.value)} />
+                                <label for="female">Cat</label><br />
+                            </div>
+                            <input type='text' placeholder='Breed' className='inputstyle' id='Breed' required onChange={(e) => setBreed(e.target.value)} />
+                            <input type='text' placeholder='Characteristics' className='inputstyle' id='Characteristics' required onChange={(e) => setCharacteristics(e.target.value)} />
+                            <input type='text' placeholder='Health' className='inputstyle' id='Health' required onChange={(e) => setHealth(e.target.value)} />
+                            <input type='text' placeholder='Color' className='inputstyle' id='Color' required onChange={(e) => setColor(e.target.value)} />
+                            <textarea type='text' placeholder='Description' className='inputstyle' id='description' required onChange={(e) => setDescription(e.target.value)} />
+                            <div className='checkboxes'>
+                                <div className='checkbox'>
+                                    <input type='checkbox' id='adult' className='check' onChange={(e) => setAdult(e.target.checked)} />
+                                    <span>Adult</span>
+                                </div>
+                                <div className='checkbox'>
+                                    <input type='checkbox' id='Housetrained' className='check' onChange={(e) => setHouseTrained(e.target.checked)} />
+                                    <span>HouseTrained</span>
+                                </div>
+                                <div className='checkbox'>
+                                    <input type='checkbox' id='spayedneutred' className='check' onChange={(e) => setSpayedNeutered(e.target.checked)} />
+                                    <span>spayed/neutred</span>
+                                </div>
 
-                    </div>
-                    <div className='checkboxes'>
-                        <div className='checkbox'>
-                            <input type="radio" id="male" name="gender" value="Male" onChange={(e) => setGender(e.target.value)} />
-                            <label for="male">Male</label><br />
-                            <input type="radio" id="female" name="gender" value="Female" onChange={(e) => setGender(e.target.value)} />
-                            <label for="female">Female</label><br />
+                            </div>
+                            <div className='checkboxes'>
+                                <div className='checkbox'>
+                                    <input type="radio" id="male" name="gender" value="Male" onChange={(e) => setGender(e.target.value)} />
+                                    <label for="male">Male</label><br />
+                                    <input type="radio" id="female" name="gender" value="Female" onChange={(e) => setGender(e.target.value)} />
+                                    <label for="female">Female</label><br />
+                                </div>
+
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div className='imagecont'>
-                    <p className='imgtitle'>Images:
-                        <span> The first image will be the cover (max 6)</span>
-                    </p>
-                    <div className='nextoeachother'>
-                    {picError && <p className="error-message">{picError}</p>}
-                        <input onChange={handleFileChange} type='file' id='images' accept='image/*' multiple />
-                    </div>
-                    {imageFile && (
-                        <div className='imglistingcont'>
-                            <img
-                                src={URL.createObjectURL(imageFile)}
-                                alt={`Preview`}
-                                className='imgstyle'
-                            />
-                            <button onClick={handleImgRemove} className='deletebutton'>delete</button>
+                        <div className='imagecont'>
+                            <p className='imgtitle'>Images:
+                                <span> The first image will be the cover (max 6)</span>
+                            </p>
+                            <div className='nextoeachother'>
+                                {picError && <p className="error-message">{picError}</p>}
+                                <input onChange={handleFileChange} type='file' id='images' accept='image/*' multiple />
+                            </div>
+                            {imageFile && (
+                                <div className='imglistingcont'>
+                                    <img
+                                        src={URL.createObjectURL(imageFile)}
+                                        alt={`Preview`}
+                                        className='imgstyle'
+                                    />
+                                    <button onClick={handleImgRemove} className='deletebutton'>delete</button>
 
 
-                            
+
+                                </div>
+                            )}
+                            <button className='createpetlisting' onClick={handleSubmit}>Create Pet Listing</button>
                         </div>
-                    )}
-                    <button className='createpetlisting' onClick={handleSubmit}>Create Pet Listing</button>
-                </div>
-                </>
+                    </>
 
-                ): <p> you need to login</p>}
+                ) : <p> you need to login</p>}
 
             </form>
         </main>
