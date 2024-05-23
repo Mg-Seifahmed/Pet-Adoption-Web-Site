@@ -3,6 +3,80 @@ import Postcard from '../Components/postitem/Postcard'
 import './dogpage.css'
 import axios from 'axios'
 
+import PetcardMain from '../Components/PetCardMainPage/PetcardMain'
+
+const dummyposts = [
+    {
+        breed: 'sexy',
+        name: 'neural network',
+        characteristics: 'a dog',
+        img: 'DHOM.jpg',
+        description: ' a pet a peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta pet ',
+        adult: 1,
+        houseTrained: 1,
+        spayedNeutered: 1,
+        color: 'black',
+        gender: 'Male',
+        health: 'healthy'
+
+    },
+    {
+        breed: 'sexy',
+        name: 'neural network',
+        characteristics: 'a dog',
+        img: 'DHOM.jpg',
+        description: ' a pet',
+        adult: 1,
+        houseTrained: 1,
+        spayedNeutered: 1,
+        color: 'black',
+        gender: 'Male',
+        health: 'healthy'
+
+    },
+    {
+        breed: 'sexy',
+        name: 'neural network',
+        characteristics: 'a dog',
+        img: 'DHOM.jpg',
+        description: ' a pet',
+        adult: 1,
+        houseTrained: 1,
+        spayedNeutered: 1,
+        color: 'black',
+        gender: 'Male',
+        health: 'healthy'
+
+    },
+    {
+        breed: 'sexy',
+        name: 'neural network',
+        characteristics: 'a dog',
+        img: 'IMG_3347.jpg',
+        description: ' a pet',
+        adult: 1,
+        houseTrained: 1,
+        spayedNeutered: 1,
+        color: 'black',
+        gender: 'Male',
+        health: 'healthy'
+
+    },
+    {
+        breed: 'sexy',
+        name: 'neural network',
+        characteristics: 'a dog',
+        img: 'WhatsApp Image 2024-03-14 at 2.00.49 AM.jpeg',
+        description: ' a pet',
+        adult: 1,
+        houseTrained: 1,
+        spayedNeutered: 1,
+        color: 'black',
+        gender: 'Male',
+        health: 'healthy'
+
+    }
+]
 
 const Dogspage = () => {
 
@@ -10,17 +84,17 @@ const Dogspage = () => {
     useEffect(() => {
 
         const fetchData = async () => {
-          try {
-            const res = await axios.post('http://localhost:3001/pet/getDog');
-            console.log(res.data);
-            setPosts(res.data);
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
+            try {
+                const res = await axios.post('http://localhost:3001/pet/getDog');
+                console.log(res.data);
+                setPosts(res.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
         };
-    
+
         fetchData();
-      }, []);
+    }, []);
 
     const [posts, setPosts] = useState([])
     return (
@@ -129,7 +203,7 @@ const Dogspage = () => {
                             <div className='posts_container'>
                                 {
                                     posts.map(({ breed, name, characteristics, img, description, adult, houseTrained, spayedNeutered, color, gender, health, publisher, pEmail }) =>
-                                        <Postcard key={name} breed={breed} img={img} name={name} description={description} characteristics={characteristics} adult={adult}
+                                        <PetcardMain key={name} breed={breed} img={img} name={name} description={description} characteristics={characteristics} adult={adult}
                                             houseTrained={houseTrained} spayedNeutered={spayedNeutered} color={color} gender={gender} health={health} publisher={publisher} pEmail={pEmail} />)
                                 }
                             </div>
