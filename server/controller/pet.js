@@ -169,6 +169,8 @@ export const acceptPet = async (req, res) => {
                 type: type
             });
 
+            console.log(pet);
+
 
             await pet.save();
             await Pet_Request.deleteOne({name: name, pEmail: pEmail});
@@ -207,6 +209,63 @@ export const getCat = async (req, res) => {
     }
 };
 
+export const getCustomCat = async (req, res) => {
+    try {
+        
+
+        const filters = req.body;
+        let query = { type: "Cat" };
+        console.log(filters);
+
+        // Handle gender filter
+        if (filters.gender.male && !filters.gender.female) {
+            query.gender = "Male";
+        } else if (!filters.gender.male && filters.gender.female) {
+            query.gender = "Female";
+        } else if (filters.gender.male && filters.gender.female) {
+            query.gender = { $in: ["Male", "Female"] };
+        }
+
+
+        // Handle color filter
+        const colors = [];
+        if (filters.color.black) colors.push("Black");
+        if (filters.color.brown) colors.push("Brown");
+        if (filters.color.orange) colors.push("Orange");
+        if (filters.color.white) colors.push("White");
+        if (colors.length > 0) {
+            query.color = { $in: colors };
+        }
+
+        // Handle house trained filter
+        if (filters.houseTrained) {
+            query.houseTrained = "House Trained";
+        }
+
+        // Handle adult filter
+        if (filters.adult) {
+            query.adult = "Adult";
+        }
+
+        // Handle spayed/neutered filter
+        if (filters.spayedNeutered) {
+            query.spayedNeutered = "Spayed Neutered";
+        }
+
+
+        const pets = await Pet.find(query);
+        res.json(pets);
+        
+
+
+
+
+    } catch (err) {
+        // Handle errorsf
+        res.json("error");
+    }
+};
+
 
 export const getDog = async (req, res) => {
     try {
@@ -215,6 +274,65 @@ export const getDog = async (req, res) => {
 
         const pet = await Pet.find({type:"Dog"});
         res.json(pet);
+        
+
+
+
+
+    } catch (err) {
+        // Handle errorsf
+        res.json("error");
+    }
+};
+
+export const getCustomDog = async (req, res) => {
+    try {
+        
+
+        const filters = req.body;
+        let query = { type: "Dog" };
+        console.log(filters);
+
+        // Handle gender filter
+        if (filters.gender.male && !filters.gender.female) {
+            query.gender = "Male";
+        } else if (!filters.gender.male && filters.gender.female) {
+            query.gender = "Female";
+        } else if (filters.gender.male && filters.gender.female) {
+            query.gender = { $in: ["Male", "Female"] };
+        }
+
+
+        // Handle color filter
+        const colors = [];
+        if (filters.color.black) colors.push("Black");
+        if (filters.color.brown) colors.push("Brown");
+        if (filters.color.orange) colors.push("Orange");
+        if (filters.color.white) colors.push("White");
+        if (colors.length > 0) {
+            query.color = { $in: colors };
+        }
+
+        // Handle house trained filter
+        if (filters.houseTrained) {
+            query.houseTrained = "House Trained";
+        }
+
+        // Handle adult filter
+        if (filters.adult) {
+            query.adult = "Adult";
+        }
+
+        // Handle spayed/neutered filter
+        if (filters.spayedNeutered) {
+            query.spayedNeutered = "Spayed Neutered";
+        }
+
+        console.log(query);
+
+
+        const pets = await Pet.find(query);
+        res.json(pets);
         
 
 
@@ -262,26 +380,51 @@ export const getSearch = async (req, res) => {
 
 export const getCustom = async (req, res) => {
     try {
+        
+
+        const filters = req.body;
+        let query = {};
+        console.log(filters);
+
+        // Handle gender filter
+        if (filters.gender.male && !filters.gender.female) {
+            query.gender = "Male";
+        } else if (!filters.gender.male && filters.gender.female) {
+            query.gender = "Female";
+        } else if (filters.gender.male && filters.gender.female) {
+            query.gender = { $in: ["Male", "Female"] };
+        }
 
 
-        const { searchTerm } = req.body;
+        // Handle color filter
+        const colors = [];
+        if (filters.color.black) colors.push("Black");
+        if (filters.color.brown) colors.push("Brown");
+        if (filters.color.orange) colors.push("Orange");
+        if (filters.color.white) colors.push("White");
+        if (colors.length > 0) {
+            query.color = { $in: colors };
+        }
 
+        // Handle house trained filter
+        if (filters.houseTrained) {
+            query.houseTrained = "House Trained";
+        }
 
-        const query = {
-            $or: [
-                { name: { $regex: searchTerm, $options: 'i' } },
-                { breed: { $regex: searchTerm, $options: 'i' } },
-                { color: { $regex: searchTerm, $options: 'i' } },
-               // { adult: { $regex: searchTerm, $options: 'i' } },
-                //{ houseTrained: { $regex: searchTerm, $options: 'i' } },
-                //{ spayedNeutered: { $regex: searchTerm, $options: 'i' } },
-                //{ gender: { $regex: searchTerm, $options: 'i' } },
-               // { type: { $regex: searchTerm, $options: 'i' } }
-            ]
-        };
+        // Handle adult filter
+        if (filters.adult) {
+            query.adult = "Adult";
+        }
+
+        // Handle spayed/neutered filter
+        if (filters.spayedNeutered) {
+            query.spayedNeutered = "Spayed Neutered";
+        }
+
 
         const pets = await Pet.find(query);
         res.json(pets);
+        
 
 
 

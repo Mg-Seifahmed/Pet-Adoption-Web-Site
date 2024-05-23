@@ -8,8 +8,23 @@ import axios from 'axios'
 const CustomPage = () => {
 
     const location = useLocation();
-    const [query, setQuery] = useState(location.state?.query || '');
-
+  const [query, setQuery] = useState(location.state?.query || '');
+  const [posts, setPosts] = useState([]);
+  const [filters, setFilters] = useState({
+    gender: {
+      male: false,
+      female: false,
+    },
+    color: {
+      black: false,
+      brown: false,
+      orange: false,
+      white: false,
+    },
+    houseTrained: false,
+    adult: false,
+    spayedNeutered: false,
+  });
 
     useEffect(() => {
 
@@ -18,42 +33,73 @@ const CustomPage = () => {
 
         const fetchData = async () => {
 
-            try {
-
-                const res = await axios.post('http://localhost:3001/pet/getSearch', { searchTerm: query });
-                console.log(res.data);
-                setPosts(res.data);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
+          try {
+            
+            const res = await axios.post('http://localhost:3001/pet/getSearch',{searchTerm: query});
+            console.log(res.data);
+            setPosts(res.data);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
         };
-
+    
         fetchData();
-    }, [query]);
+      }, [query]);
 
-    useEffect(() => {
+      useEffect(() => {
         if (location.state?.query) {
-            setQuery(location.state.query);
+          setQuery(location.state.query);
         }
-    }, [location.state]);
+      }, [location.state]);
 
-    const [posts, setPosts] = useState([])
+  const handleInputChange = (e) => {
+    const { id, checked } = e.target;
+    const [category, subcategory] = id.split('_');
+
+    if (subcategory) {
+      setFilters((prevFilters) => ({
+        ...prevFilters,
+        [category]: {
+          ...prevFilters[category],
+          [subcategory]: checked,
+        },
+      }));
+    } else {
+      setFilters((prevFilters) => ({
+        ...prevFilters,
+        [id]: checked,
+      }));
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await axios.post('http://localhost:3001/pet/getCustom', { searchTerm: query, ...filters });
+    console.log(res.data);
+    setPosts(res.data);
+  };
+
+
     return (
         <>
             <div className='Search'>
 
                 <div className='Right' >
-                    <form className='Lform'>
+                    <form className='Lform' onSubmit={handleSubmit}>
 
                         <div className='Checkk'>
                             <label className='label' >Preferred Gender
                                 <div className='gender'
                                 >
-                                    <input type='checkbox' id='Male'
-                                        className='box'></input>
+                                    <input type='checkbox'
+                                     id='gender_male'
+                                        className='box'
+                                        onChange={handleInputChange}></input>
                                     <span>Male </span>
-                                    <input type='checkbox' id='Female'
-                                        className='box'></input>
+                                    <input type='checkbox' id='gender_female'
+                                        className='box'
+                                        onChange={handleInputChange}></input>
                                     <span>Female</span>
                                 </div>
 
@@ -70,28 +116,32 @@ const CustomPage = () => {
                             <label className='label' >Preferred Color
                                 <div className='color'
                                 >
-                                    <input type='checkbox' id='Black'
-                                        className='box'></input>
+                                    <input type='checkbox' id='color_black'
+                                        className='box'
+                                        onChange={handleInputChange}></input>
                                     <span>Black </span>
                                 </div>
 
                                 <div className='color'
                                 >
-                                    <input type='checkbox' id='Brown'
-                                        className='box'></input>
+                                    <input type='checkbox' id='color_brown'
+                                        className='box'
+                                        onChange={handleInputChange}></input>
                                     <span>Brown</span>
                                 </div>
 
                                 <div className='color'
                                 >
-                                    <input type='checkbox' id='Ornage'
-                                        className='box'></input>
+                                    <input type='checkbox' id='color_orange'
+                                        className='box'
+                                        onChange={handleInputChange}></input>
                                     <span>Orange</span>
                                 </div>
                                 <div className='color'
                                 >
-                                    <input type='checkbox' id='White'
-                                        className='box'></input>
+                                    <input type='checkbox' id='color_white'
+                                        className='box'
+                                        onChange={handleInputChange}></input>
                                     <span>White</span>
                                 </div>
                             </label>
@@ -102,8 +152,9 @@ const CustomPage = () => {
                             <label className='label'>House trained:
                                 <div className='color'
                                 >
-                                    <input type='checkbox' id='housetrained'
-                                        className='box'></input>
+                                    <input type='checkbox' id='houseTrained'
+                                        className='box'
+                                        onChange={handleInputChange}></input>
                                     <span>HouseTrained </span>
                                 </div>
                             </label>
@@ -115,7 +166,8 @@ const CustomPage = () => {
                                 <div className='color'
                                 >
                                     <input type='checkbox' id='adult'
-                                        className='box'></input>
+                                        className='box'
+                                        onChange={handleInputChange}></input>
                                     <span>Adult </span>
                                 </div>
                             </label>
@@ -126,7 +178,8 @@ const CustomPage = () => {
                                 <div className='color'
                                 >
                                     <input type='checkbox' id='spayedneutered'
-                                        className='box'></input>
+                                        className='box'
+                                        onChange={handleInputChange}></input>
                                     <span>Spayed/neutered </span>
                                 </div>
                             </label>
