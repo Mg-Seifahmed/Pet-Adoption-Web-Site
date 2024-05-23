@@ -25,6 +25,10 @@ const Signup = () => {
   };
 
   const validatePasswordMatch = (password, repeatPassword) => {
+    if(password == "")
+      {
+        return false;
+      }
     return password === repeatPassword;
   };
 

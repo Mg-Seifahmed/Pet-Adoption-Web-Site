@@ -12,13 +12,13 @@ export const register = async (req, res) => {
         }
 
         // Generate salt and hash password
-        //const salt = await bcrypt.genSalt();
-        //const hash = await bcrypt.hash(password, salt);
+        const salt = await bcrypt.genSalt();
+        const hash = await bcrypt.hash(password, salt);
 
         // Create a new User instance
         const user = new User({
             fullName: fullName,
-            password: password,
+            password: hash,
             email: email
         });
 
@@ -47,17 +47,19 @@ export const login = async (req, res) => {
         const { password, email } = req.body;
 
 
-        const m = await User.findOne({email: email});
+        const user = await User.findOne({email: email});
 
         //const salt = await bcrypt.genSalt();
         //const hash = await bcrypt.hash(password, salt);
 
         
-        if (m)
+        if (user)
             {
-                if(m.password == password)
+
+                const com = bcrypt.compare(password, user.password);
+                if(com)
                     {
-                        res.json(m);
+                        res.json(user);
                     }
                     else{
                         res.json("not found");
