@@ -23,7 +23,12 @@ const Homepage = () => {
           <br />
         </div>
         <div className='secondhalf'>
-          <img className='homeimg' src={img}></img>
+          {
+            /*<img className='homeimg' src={img}></img>*/
+          }
+          <div className='homeimg2'>
+
+          </div>
         </div>
       </div>
       <div className='part2'>
@@ -44,7 +49,7 @@ const Homepage = () => {
 
 
             <div class="card blue">
-              <Link to='/dogs'>
+              <Link to='/cats'>
                 <div className='class-img'>
                   <IconContext.Provider value={{ className: "shared-class", size: 70 }}>
                     <FaCat />

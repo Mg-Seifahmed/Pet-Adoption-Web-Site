@@ -1,7 +1,7 @@
 .background{
-    background: linear-gradient(45deg, #81689D, #FFD0EC,hsla(257, 99%, 72%, 1));
+    background: linear-gradient(45deg, #81689D, #FFD0EC,rgb(11, 33, 207));
     background-size: 300% 300%;
-    animation: color 12s ease-in-out infinite;
+    animation: color 5s ease-in-out infinite;
 }
 
 .homeimg {
@@ -10,7 +10,48 @@
     height: auto;
     width: 95%;
   }
+  .homeimg2 {
+    border: 0.5rem solid purple; /* Purple border */
+    border-radius: 50px; /* Rounded corners */
+    height: 60vh;
+    width: 95%;
+    background-image: url(IMG_2044.JPG);
+    background-size: cover ;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 5s;
 
+
+    animation-name: animate;
+    animation-direction: alternate-reverse;
+    animation-play-state: running;
+    animation-timing-function: ease-in;
+    animation-duration: 30s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+
+  }
+
+  @keyframes animate {
+      0%{
+        background-image: url(IMG_2044.JPG);
+      }
+      20%{
+        background-image: url(lily.jpeg);
+      }
+      40%{
+        background-image: url(Juvenile_Ragdoll.jpg);
+      }
+      60%{
+        background-image: url(dog1.jpg);
+      }
+      80%{
+        background-image: url(12760-scaled-e1682961698876-1536x998.jpeg);
+      }
+      100%{
+        background-image: url(IMG_2044.JPG);
+      }
+  }
 
 .half{
     display: flex;

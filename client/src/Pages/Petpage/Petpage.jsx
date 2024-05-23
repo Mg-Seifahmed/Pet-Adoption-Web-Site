@@ -17,10 +17,10 @@ const Petpage = () => {
             <div className='split'>
                 <div className='petcontentmain'>
                     <h1 >{name}</h1>
-                    <h2 className='petbreed'>{breed} <BsDot /> {color}</h2>
+                    <h2 className='petbreed'>{breed && <span>{breed} <BsDot /> </span>}  {color}</h2>
 
                     <hr></hr>
-                    <h2 className='petbreed'>{adult} <BsDot /> {gender} <BsDot />  {houseTrained} <BsDot />  {spayedNeutered}</h2>
+                    <h2 className='petbreed'>{adult && <span>{adult}  <BsDot /> </span>} {gender && <span>{gender} <BsDot /></span>}  {houseTrained && <span>{houseTrained} <BsDot /></span>}  {spayedNeutered && <span>{spayedNeutered} </span>}</h2>
 
                     <hr></hr>
 
