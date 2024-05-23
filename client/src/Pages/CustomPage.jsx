@@ -18,24 +18,24 @@ const CustomPage = () => {
 
         const fetchData = async () => {
 
-          try {
-            
-            const res = await axios.post('http://localhost:3001/pet/getSearch',{searchTerm: query});
-            console.log(res.data);
-            setPosts(res.data);
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
-        };
-    
-        fetchData();
-      }, [query]);
+            try {
 
-      useEffect(() => {
+                const res = await axios.post('http://localhost:3001/pet/getSearch', { searchTerm: query });
+                console.log(res.data);
+                setPosts(res.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, [query]);
+
+    useEffect(() => {
         if (location.state?.query) {
-          setQuery(location.state.query);
+            setQuery(location.state.query);
         }
-      }, [location.state]);
+    }, [location.state]);
 
     const [posts, setPosts] = useState([])
     return (
@@ -140,6 +140,7 @@ const CustomPage = () => {
 
                 <div className='Left' >
                     <div>
+                        <h1 className='petlistingtitle'>Your Search Results: </h1>
                         <section className='posts'>
                             <div className='posts_container'>
                                 {

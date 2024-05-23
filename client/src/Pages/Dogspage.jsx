@@ -1,82 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import Postcard from '../Components/postitem/Postcard'
 import './dogpage.css'
 import axios from 'axios'
+import Petcard from '../Components/PetcardMain/Petcard'
 
-import PetcardMain from '../Components/PetCardMainPage/PetcardMain'
-
-const dummyposts = [
-    {
-        breed: 'sexy',
-        name: 'neural network',
-        characteristics: 'a dog',
-        img: 'DHOM.jpg',
-        description: ' a pet a peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta peta pet ',
-        adult: 1,
-        houseTrained: 1,
-        spayedNeutered: 1,
-        color: 'black',
-        gender: 'Male',
-        health: 'healthy'
-
-    },
-    {
-        breed: 'sexy',
-        name: 'neural network',
-        characteristics: 'a dog',
-        img: 'DHOM.jpg',
-        description: ' a pet',
-        adult: 1,
-        houseTrained: 1,
-        spayedNeutered: 1,
-        color: 'black',
-        gender: 'Male',
-        health: 'healthy'
-
-    },
-    {
-        breed: 'sexy',
-        name: 'neural network',
-        characteristics: 'a dog',
-        img: 'DHOM.jpg',
-        description: ' a pet',
-        adult: 1,
-        houseTrained: 1,
-        spayedNeutered: 1,
-        color: 'black',
-        gender: 'Male',
-        health: 'healthy'
-
-    },
-    {
-        breed: 'sexy',
-        name: 'neural network',
-        characteristics: 'a dog',
-        img: 'IMG_3347.jpg',
-        description: ' a pet',
-        adult: 1,
-        houseTrained: 1,
-        spayedNeutered: 1,
-        color: 'black',
-        gender: 'Male',
-        health: 'healthy'
-
-    },
-    {
-        breed: 'sexy',
-        name: 'neural network',
-        characteristics: 'a dog',
-        img: 'WhatsApp Image 2024-03-14 at 2.00.49 AM.jpeg',
-        description: ' a pet',
-        adult: 1,
-        houseTrained: 1,
-        spayedNeutered: 1,
-        color: 'black',
-        gender: 'Male',
-        health: 'healthy'
-
-    }
-]
 
 const Dogspage = () => {
 
@@ -199,12 +125,13 @@ const Dogspage = () => {
 
                 <div className='Left' >
                     <div>
+                        <h1 className='petlistingtitle'>Dog page</h1>
                         <section className='posts'>
                             <div className='posts_container'>
                                 {
-                                    posts.map(({ breed, name, characteristics, img, description, adult, houseTrained, spayedNeutered, color, gender, health, publisher, pEmail }) =>
-                                        <PetcardMain key={name} breed={breed} img={img} name={name} description={description} characteristics={characteristics} adult={adult}
-                                            houseTrained={houseTrained} spayedNeutered={spayedNeutered} color={color} gender={gender} health={health} publisher={publisher} pEmail={pEmail} />)
+                                    posts.map(({ breed, name, characteristics, img, description, adult, houseTrained, spayedNeutered, color, gender, health, publisher, pEmail, type }) =>
+                                        <Petcard key={name} breed={breed} img={img} name={name} description={description} characteristics={characteristics} adult={adult}
+                                            houseTrained={houseTrained} spayedNeutered={spayedNeutered} color={color} gender={gender} health={health} publisher={publisher} pEmail={pEmail} type={type} />)
                                 }
                             </div>
                         </section>

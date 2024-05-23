@@ -1,5 +1,5 @@
 .background{
-    background: linear-gradient(45deg, #474F7A,#81689D,#FFD0EC);
+    background: linear-gradient(45deg, #81689D, #FFD0EC,hsla(257, 99%, 72%, 1));
     background-size: 300% 300%;
     animation: color 12s ease-in-out infinite;
 }
@@ -19,6 +19,7 @@
 }
 .pagetitle{
     font-size: 80px;
+    text-shadow: -1px -1px 0 #81689D, 1px -1px 0 #81689D, -1px 1px 0 #81689D, 1px 1px 0 #81689D;
 }
 @keyframes color {
     0%{
@@ -46,6 +47,7 @@
     text-align: center;
     font-size: 50px;
     margin-bottom: 3rem;
+    text-shadow: -1px -1px 0 #81689D, 1px -1px 0 #81689D, -1px 1px 0 #81689D, 1px 1px 0 #81689D;
 }
 
 .split{

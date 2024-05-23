@@ -4,6 +4,7 @@ import { IconContext } from "react-icons";
 import { FaBlackTie, FaDog } from "react-icons/fa6"
 import { FaCat } from "react-icons/fa";
 import { MdPets } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 
 
@@ -29,36 +30,49 @@ const Homepage = () => {
         <h2 className='title'>Choose Your Pet Companion</h2>
         <div className='card-align'>
           <div class="cards">
-            <div class="card red">
-              <div className='class-img'>
-                <IconContext.Provider value={{ className: "shared-class", size: 70 }}>
-                  <FaDog />
-                </IconContext.Provider>
-              </div>
-              <h2 className='card-title'>Dogs</h2>
-            </div>
-            <div class="card blue">
-              <div className='class-img'>
-                <IconContext.Provider value={{ className: "shared-class", size: 70 }}>
-                  <FaCat />
-                </IconContext.Provider>
 
-              </div>
-              <h2 className='card-title'>Cats</h2>
+            <div class="card red">
+              <Link to='/dogs'>
+                <div className='class-img'>
+                  <IconContext.Provider value={{ className: "shared-class", size: 70 }}>
+                    <FaDog />
+                  </IconContext.Provider>
+                </div>
+                <h2 className='card-title'>Dogs</h2>
+              </Link>
             </div>
+
+
+            <div class="card blue">
+              <Link to='/dogs'>
+                <div className='class-img'>
+                  <IconContext.Provider value={{ className: "shared-class", size: 70 }}>
+                    <FaCat />
+                  </IconContext.Provider>
+
+                </div>
+                <h2 className='card-title'>Cats</h2>
+              </Link>
+            </div>
+
+
             <div class="card green">
-              <div className='class-img'>
-                <IconContext.Provider value={{ className: "shared-class", size: 70 }}>
-                  <MdPets />
-                </IconContext.Provider>
-              </div>
-              <h2 className='card-title'>Shelters and rescues</h2>
+              <Link to='/edu'>
+                <div className='class-img'>
+                  <IconContext.Provider value={{ className: "shared-class", size: 70 }}>
+                    <MdPets />
+                  </IconContext.Provider>
+                </div>
+                <h2 className='card-title'>Educational Content</h2>
+              </Link>
             </div>
+
           </div>
+
         </div>
 
-      </div>
-    </div>
+      </div >
+    </div >
   )
 }
 

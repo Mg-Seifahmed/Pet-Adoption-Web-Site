@@ -1,12 +1,11 @@
 .post{
-    
     background: linear-gradient(#474F7A, #474F7A) padding-box,
               linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
     padding: 1rem;
     border-radius: 35px;
     padding-bottom: 2rem;
     transition: all 300ms ease;
-    width: 85%;
+    width: 70%;
     cursor: default;
     border: 5px solid transparent;
     background-size: 200% 100%;

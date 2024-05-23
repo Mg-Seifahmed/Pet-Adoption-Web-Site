@@ -2,7 +2,6 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar'
 import Homepage from './Pages/Homepage';
-import Pet from './Pages/Pet';
 import Login from './Components/Logincomp/Login';
 import Signup from './Components/SignupComp/Signup';
 import PetListing from './Components/PetAddcomp/PetListing';
@@ -30,9 +29,7 @@ function App() {
           <Route path='/' element={<Homepage />} />
           <Route path='/dogs' element={<Dogspage />} />
           <Route path='/cats' element={<Catpage />} />
-          <Route path="/pet" element={<Pet />}>
-            <Route path=":petid" element={<Pet />} />
-          </Route>
+          <Route path="/pet/:petid" element={<Petpage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/Addpet" element={<PetListing />} />
@@ -40,7 +37,7 @@ function App() {
           <Route path='/admin/:title' element={<PostDetails />} />
           <Route path='/aboutus' element={<AboutUs />} />
           <Route path='/user' element={<UserProfile />} />
-
+          <Route path='/search' element={<CustomPage />} />
         </Routes>
         <Footercomp />
       </BrowserRouter>
